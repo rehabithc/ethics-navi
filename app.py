@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from config import QUADRANTS, DISCLAIMER
+from config import QUADRANTS, DISCLAIMER, PRIVACY_NOTICE
 from claude_client import EthicsNaviClient
 from session_manager import (
     init_session,
@@ -91,6 +91,7 @@ client = get_client()
 # --- Phase 1: ケース入力 ---
 if st.session_state.phase == "input":
     st.header("ケース概要を入力してください")
+    st.error(PRIVACY_NOTICE)
     st.markdown("倫理的に検討が必要なケースの概要を自由に記述してください。")
 
     case_text = st.text_area(
